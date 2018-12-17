@@ -13,7 +13,7 @@ import PIL.ImageFilter as ImageFilter
 import colorsys
 
 dir = os.path.dirname(os.path.realpath(__file__))
-savepath = os.path.join(dir,'pic')
+savepath = os.path.join(dir,'pice')
 fontpath = os.path.join(dir,'fonts')
 
 def perspective(im,widthscale,heightscale,horizontaloblique,verticaloblique,shiftright,shiftdown,MagnifyX,MagnifyY,size=None):
@@ -132,7 +132,7 @@ def randomdistort(im):
     im = PIL.ImageOps.invert(im)
     im = im.crop(im.getbbox())
     im = PIL.ImageOps.invert(im)
-    im = im.rotate(np.random.randn()*15)
+    im = im.rotate(np.random.uniform(-15,5))
     rt_bg = Image.new('RGB',im.size,(255, 255, 255))
     rt_bg.paste(im,(0,0),mask = im.split()[2])
     im = rt_bg
@@ -143,7 +143,7 @@ def randomdistort(im):
     #affine
     im = affine(im,widthscale=np.random.uniform(0.7,1.3),
                 heightscale=np.random.uniform(0.7,1.3),
-                horizontaloblique=np.random.uniform(-0.4,0.4),
+                horizontaloblique=np.random.uniform(-0.7,0),
                 verticaloblique=np.random.uniform(-0.4,0.4),
                 shiftright=0,
                 shiftdown=0,size=(90,90))
