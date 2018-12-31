@@ -8,7 +8,6 @@ import PIL
 import PIL.ImageOps
 import os
 import uuid
-import augment
 import PIL.ImageFilter as ImageFilter
 import colorsys
 
